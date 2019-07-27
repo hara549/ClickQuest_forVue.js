@@ -1,0 +1,51 @@
+body {
+  /* max-width: 1170px; */
+  text-align: center;
+}
+li {
+  list-style: none;
+}
+.tabs {
+    overflow: hidden;
+}
+
+.tabs input {
+  display: none;
+}
+
+.tabs label {
+    display: inline-block;
+    line-height: 40px;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    background: #eee;
+    transition: 0.3s;
+    border-radius: 10px 10px 0 0;
+}
+
+.tabs input:checked + label,
+.tabs label:hover {
+    background: #56B4BE;
+    color: #fff;
+}
+
+.contents {
+    width:80%;
+    height: auto;
+    margin: 0 auto;
+    padding: 15px 10px;
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.2);
+    border: 1px solid #eee;
+    border-top: 2px solid #56B4BE;
+}
+
+.contents p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.contents p.title {
+  font-size: 16px;
+  font-weight: bold;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="js" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>ClickQuest</title>
+  </head>
+  <body>
+    <div id="tabBox">
+        <div class="tabs">
+          <input type="radio" id="tab1" name="tab" value="0" v-model="isActive">
+          <label for="tab1">初級</label>
+          <input type="radio" id="tab2" name="tab" value="1" v-model="isActive">
+          <label for="tab2">中級</label>
+          <input type="radio" id="tab3" name="tab" value="2" v-model="isActive">
+          <label for="tab3">上級</label>
+        </div>
+
+        <ul class="contents">
+          <li v-if="isActive === '0'">
+            <!-- 初級 -->
+            <div id="app_beginner" v-if="result">
+              <p>{{ list[0].name }}</p>
+              <p>HP.{{ list[0].hp }}<meter min="0" v-bind:max="list[0].maxhp" v-bind:value="list[0].hp"></meter><span v-if="list[0].hp < 50">瀕死！</span></p>
+              <p><img v-bind:src="list[0].imgpath"></p><br>
+              <button v-on:click="doAttack(0)">攻撃する</button>
+              <p>必殺技ゲージ<meter min="0" v-bind:max="100" v-bind:value="count"></meter></p>
+              <button v-if="count >= 100" v-on:click="deathBlow(0)">必殺技</button>
+            </div>
+            <div v-else>
+              Win！！
+            </div>
+          </li>
+          <li v-else-if="isActive === '1'">
+            <!-- 中級 -->
+            <div id="app_Intermediate" v-if="result">
+              <p>{{ list[1].name }}</p>
+              <p>HP.{{ list[1].hp }}<meter min="0" v-bind:max="list[1].maxhp" v-bind:value="list[1].hp"></meter><span v-if="list[1].hp < 50">瀕死！</span></p>
+              <p><img v-bind:src="list[1].imgpath"></p><br>
+              <button v-on:click="doAttack(1)">攻撃する</button>
+              <p>必殺技ゲージ<meter min="0" max="100" v-bind:value="count"></meter></p>
+              <button v-if="count >= 100" v-on:click="deathBlow(1)">必殺技</button>
+            </div>
+            <div v-else>
+              Win！！
+            </div>
+          </li>
+          <li v-else-if="isActive === '2'">
+            <!-- 上級 -->
+            <div id="app_advanced" v-if="result">
+              <p>{{ list[2].name }}</p>
+              <p>HP.{{ list[2].hp }}<meter min="0" v-bind:max="list[2].maxhp" v-bind:value="list[2].hp"></meter><span v-if="list[2].hp < 50">瀕死！</span></p>
+              <p><img v-bind:src="list[2].imgpath"></p><br>
+              <button v-on:click="doAttack(2)">攻撃する</button>
+              <p>必殺技ゲージ<meter min="0" max="100" v-bind:value="count"></meter></p>
+              <button v-if="count >= 100" v-on:click="deathBlow(2)">必殺技</button>
+            </div>
+            <div v-else>
+              Win！！
+            </div>
+          </li>
+        </ul>
+    </div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/main.js"></script>
+</html>
