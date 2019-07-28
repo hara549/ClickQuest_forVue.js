@@ -49,3 +49,12 @@ li {
   font-size: 16px;
   font-weight: bold;
 }
+#timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.time {
+  font-size: 45px;
+}
